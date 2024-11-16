@@ -1,0 +1,10 @@
+# results
+results/
+additional_files/
+awigen_dataset/
+plink_1.9/
+plink_2.0/
+.ipynb_checkpoints/
+data_description.txt
+.pversion
+PlinkVcf_conversion.sh
