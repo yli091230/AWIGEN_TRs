@@ -3,6 +3,9 @@ This the the dataset of `EGAD00010001996`. Plink files are downloaded from ilifu
 
 # File structure
 Results and additional files are not included in this repository.
+
+```bash
 ├── notebooks
 ├── README.md
 └── scripts
+```
