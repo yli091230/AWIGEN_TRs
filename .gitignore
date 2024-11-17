@@ -5,6 +5,11 @@ awigen_dataset/
 plink_1.9/
 plink_2.0/
 .ipynb_checkpoints/
+__pycache__/
+
+Untitled*
+beagle.27May24.118.jar
 data_description.txt
 .pversion
 PlinkVcf_conversion.sh
+

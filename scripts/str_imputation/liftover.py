@@ -28,6 +28,7 @@ def update_vcf_gz(input_file, output_lifted, output_failed):
                 curr_pos = int(vcf_values[1])
                 curr_chrom = curr_chrom if curr_chrom.startswith("chr") else f"chr{curr_chrom}"
                 lifted_pos = hg19Tohg38(curr_chrom, curr_pos)
+                vcf_values[0] = curr_chrom
                 if lifted_pos is not None:
                     vcf_values[1] = str(lifted_pos)
                     new_line = "\t".join(vcf_values)
