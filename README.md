@@ -7,5 +7,12 @@ Results and additional files are not included in this repository.
 ```bash
 ├── notebooks
 ├── README.md
+├── results
 └── scripts
+    ├── plinkTovcf
+    └── str_imputation
 ```
+# Quick start
+* Prepare files for imputation:
+1. If SNPs in plink format, convert to vcf files and lift the coordinate to hg38 using the scripts in `plinkTovcf`.
+2. Impute TRs (beagle is very memory intensive, for 10k samples, able to run imputation with 25G memory using `--window 5`). Extract TRs.
