@@ -12,4 +12,5 @@ beagle.27May24.118.jar
 data_description.txt
 .pversion
 PlinkVcf_conversion.sh
-
+*.txt
+*.log
