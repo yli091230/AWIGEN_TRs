@@ -1,10 +1,10 @@
 # TR imputation
-## LiftOver 
-Run the `liftover.py` to update the POS from hg19 to hg38 and write lifted, unlifted SNPs into vcf files (2G memory).
+## 1. Run LiftOver 
+Run the `liftover.py` to update the POS from hg19 to hg38 and write lifted, unlifted SNPs into vcf files (2G memory). Use the `liftover.yaml` to set up the `pyliftover` package.  
 
 The script will first remove SNPs with big AF difference between 1kg REF and target REF, then perform the liftover.
 
-## Imputation and annotation
+## 2. Run imputation and annotation
 The TR imputation are based on this [TRTools](https://github.com/gymrek-lab/TRTools/blob/tr-gwas-tutorial/doc/VIGNETTE-GWAS-TUTORIAL.rst)
 
 * Use the --window parameter to reduce memory useage (5 works for 10k sample with a 25G memory). A small window sometimes will have no marker SNPs inside, so use the default 40 and split samples to do the imputation.

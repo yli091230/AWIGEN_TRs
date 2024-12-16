@@ -20,6 +20,9 @@ def update_vcf_gz(input_file, output_lifted, output_failed):
     with gzip.open(input_file, 'rt') as infile, open(output_lifted, 'w') as outfile_lifted, open(output_failed, "w") as outfile_failed:
         for line in infile:
             if line.startswith('#'):
+                if "contig=<ID=" in line:
+                    new_line = line.replace("ID=", "ID=chr")
+                    line = new_line
                 outfile_lifted.write(line)
                 outfile_failed.write(line)
             else:

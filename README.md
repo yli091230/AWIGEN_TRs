@@ -19,6 +19,7 @@ Results and additional files are not included in this repository.
 If SNPs in plink format, convert to vcf files using the scripts in `/scripts/plinkTovcf/plink2_conversion.sh`. This is pretty fast and can be done with 8G memory for 10k samples size. 
 
 ## 2. Imuptation
+### 2.1 Prepare fils for imputation
 Before imputation, we need to check the quality of SNPs by comparing to the imputation reference panel, lift over the coordinate from hg19 to hg38, batch the samples to reduce the memory requirement by running:
 ```bash
 # this step need about 2G memory
@@ -27,7 +28,7 @@ bash ./scripts/str_imputation/run_liftover.sh
 Here are some filtering has been applied:
 * remove SNPs where the AF difference is too big between 1kg (reference) and H3Africa cohort. 
 * split the vcf files by samples, every 1,000 samples per batch.
-
+### 2.2 Run imputation
 After filtering and batching the vcf files, run the following scripts to impute STRs into SNPs: 
 ```bash 
 # This need 25 GB memory for 1,000 samples

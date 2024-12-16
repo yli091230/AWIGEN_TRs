@@ -7,6 +7,8 @@
 2. Check if the plink files are phased
 
 # quality checks:
+Check the `../../notebooks/plinkVcf_quality_check/converted_vcf_quality_check.ipynb` for details.
+
 1. Use the 1GK AFR to check `/storage/resources/datasets/1000Genomes/phase3/`
 2. Might need to remove "A/T", "C/G" ambigious SNPs
 * Ambigious SNPs looks not too bad, so they were kept in the imputation.
