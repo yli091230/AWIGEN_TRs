@@ -20,6 +20,6 @@ Total time:                    4 hours 52 minutes 31 seconds
 Using --windowsize=40 (default one), takes about 6 hours to finish all
 ```
 ### 2.2 Annotation
-The extract and annotation part seems not memory intensive, 2G memory should be okay. Run `./extract_and_annotate_TRs.sh` to merge all batched files and annotate.
+The extract and annotation part seems not memory intensive, 2G memory should be okay. Run `./extract_and_annotate_TRs.sh ${chrom} ${str_only}` to merge all batched files and annotate.
 * The `'ID~"EnsTR"'` is not working, use `"ID=@file"` to include EnsTRs. `file` can be a text file contains all EnsTR IDs.
 * Install `trtools` and use the `annotaTR` to add the annotations.  

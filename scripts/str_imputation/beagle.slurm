@@ -5,14 +5,14 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
-#SBATCH --time=24:00:00
+#SBATCH --time=48:00:00
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=32G
 #SBATCH --export=ALL
 
 module load cpu/0.15.4  gcc/10.2.0
 module load anaconda3
-
+module load tabix
 set -e
 chrom=$1
 #log_dir="/expanse/protected/gymreklab-dbgap/mount/H3Africa/DS_I_Africa_project/from_ilifu/scripts/str_imputation/beagle_imputation_logs/"

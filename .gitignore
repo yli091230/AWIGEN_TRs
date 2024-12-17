@@ -6,6 +6,7 @@ plink_1.9/
 plink_2.0/
 .ipynb_checkpoints/
 __pycache__/
+logs/
 
 Untitled*
 beagle.27May24.118.jar

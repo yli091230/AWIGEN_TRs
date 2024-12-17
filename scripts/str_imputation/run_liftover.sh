@@ -14,7 +14,7 @@ output_dir="/expanse/protected/gymreklab-dbgap/mount/H3Africa/DS_I_Africa_projec
 include_SNPs="/expanse/protected/gymreklab-dbgap/mount/H3Africa/DS_I_Africa_project/from_ilifu/results/converted_vcf/SNPs_failed_QC"
 
 set -e
-for chrom in $(seq 2 22); do
+for chrom in $(seq 1 22); do
   echo "Start index for chr${chrom}..." 
   tabix -f -p vcf ${input_file}/chr${chrom}_with_af.vcf.gz
   echo "  Finishe index, start filtering SNPs..."

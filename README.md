@@ -19,7 +19,7 @@ Results and additional files are not included in this repository.
 If SNPs in plink format, convert to vcf files using the scripts in `/scripts/plinkTovcf/plink2_conversion.sh`. This is pretty fast and can be done with 8G memory for 10k samples size. 
 
 ## 2. Imuptation
-### 2.1 Prepare fils for imputation
+### 2.1 Prepare files for imputation
 Before imputation, we need to check the quality of SNPs by comparing to the imputation reference panel, lift over the coordinate from hg19 to hg38, batch the samples to reduce the memory requirement by running:
 ```bash
 # this step need about 2G memory
@@ -32,14 +32,17 @@ Here are some filtering has been applied:
 After filtering and batching the vcf files, run the following scripts to impute STRs into SNPs: 
 ```bash 
 # This need 25 GB memory for 1,000 samples
+# To run in a interactive node
 ./scripts/str_imputation/beagle_imputation.sh
-```
 
-The last step is to annotate TRs and combine the samples by running:
+# To submit job using SLURM
+./scripts/str_imputation/submit_beagle_jobs.sh
+```
+### 2.3 Merge and prepare files for GWAS 
+The last step is to combine the samples, annotate TRs and computing dosages using `annotaTR` from `TRtools` by running:
 ```bash
-## If only test TRs, run this scirpt to remove SNPs
-
-## Run this scripts to include SNPs
-
+# chrom is a integer for chrom number
+# str_only takes value "true" or "false". If true, will extract only TRs; if False, will include both TR and SNPs
+./scripts/str_imputation/extract_and_annotate_TRs.sh ${chrom} ${str_only}
 ```
-
+## 3. Running GWAS 
