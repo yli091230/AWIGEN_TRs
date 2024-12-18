@@ -33,16 +33,23 @@ After filtering and batching the vcf files, run the following scripts to impute 
 ```bash 
 # This need 25 GB memory for 1,000 samples
 # To run in a interactive node
-./scripts/str_imputation/beagle_imputation.sh
+bash ./scripts/str_imputation/beagle_imputation.sh
 
-# To submit job using SLURM
-./scripts/str_imputation/submit_beagle_jobs.sh
+# To submit jobs using SLURM
+bash ./scripts/str_imputation/submit_beagle_jobs.sh
 ```
-### 2.3 Merge and prepare files for GWAS 
+### 2.3 Merge and prepare files for GWAS
 The last step is to combine the samples, annotate TRs and computing dosages using `annotaTR` from `TRtools` by running:
 ```bash
 # chrom is a integer for chrom number
 # str_only takes value "true" or "false". If true, will extract only TRs; if False, will include both TR and SNPs
-./scripts/str_imputation/extract_and_annotate_TRs.sh ${chrom} ${str_only}
+bash ./scripts/str_imputation/extract_and_annotate_TRs.sh ${chrom} ${str_only}
+
+# To submit jobs using SLURM
+bash ./scripts/str_imputation/submit_annotatr.sh
 ```
-## 3. Running GWAS 
+It might be better to extract the TRs (by setting ${str_only}="true") and perform the GWAS for TR and SNPs seperately. The imputed variants may contains new SNPs. 
+
+
+## 3. Running GWAS
+GWAS on AWIGENE dataset have been reported and can be used as a reference [lipid traits](https://pmc.ncbi.nlm.nih.gov/articles/PMC9095599/), [blood pressure traits](https://www.nature.com/articles/s41467-023-44079-0#Sec10). 
