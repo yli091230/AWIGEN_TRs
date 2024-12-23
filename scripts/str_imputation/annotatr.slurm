@@ -14,7 +14,8 @@ module load cpu/0.15.4  gcc/10.2.0
 module load anaconda3
 module load tabix
 module load bcftools
-
+#$ANACONDA3HOME/etc/profile.d/conda.sh
+eval "$(conda shell.bash hook)"
 conda activate trtools
 
 set -e

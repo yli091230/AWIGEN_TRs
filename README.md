@@ -52,4 +52,31 @@ It might be better to extract the TRs (by setting ${str_only}="true") and perfor
 
 
 ## 3. Running GWAS
-GWAS on AWIGENE dataset have been reported and can be used as a reference [lipid traits](https://pmc.ncbi.nlm.nih.gov/articles/PMC9095599/), [blood pressure traits](https://www.nature.com/articles/s41467-023-44079-0#Sec10). 
+GWAS on AWIGENE dataset have been reported and can be used as a reference [lipid traits](https://pmc.ncbi.nlm.nih.gov/articles/PMC9095599/), [blood pressure traits](https://www.nature.com/articles/s41467-023-44079-0#Sec10).
+
+### Use PLINK2 for GWAS association
+There are different tools avaiable for GWAS association test. Here we use PLINK2 to run GWAS.
+
+### 3.1.1 Covariates for GWAS  
+GWAS is performed seperately for SNPs and TRs. The most common used covariates contains: age, sex, PCs. Dependents on phenotypes, other covariates or adjustement on pehnotypes need to be added. Make sure to check literature on how those GWAS are performed for the specific phenotypes. In this example, LDL phenotype is used for GWAS and cholesterol treatment is included in the covariates.  
+### PCs
+To calcualte PCs, the input SNPs were first fitered to remove SNP with MAF < 0.05, and keeps only biallelic SNPs, then LD pruned. The filtered SNPs were then used for PCA calculation.
+```bash
+# To filtering SNPs
+bash ./scripts/GWAS/prepration/filtering_SNPs.sh
+# Use smartpca to calcualte PCA
+bash ./scripts/GWAS/prepration/calculate_pc.sh 
+```
+### 3.1.2 QC on variants
+Can use the filtered SNPs from last step for GWAS test.
+
+### 3.1.3 Sample relateless check
+Use the --make-king to generate kinship and set the cutoff to 0.177
+
+### 3.1.4 Run GWAS with PLINK2
+* SNPs showing missingness greater than 0.05, MAF less than 0.01, and HardyWeinberg equilibrium (HWE) P-value less than 0.0001 are removed (the SNPs get from EGA should be QCed).
+* Duplicates, sexual chromosomes, mitochondrial SNPs and SNPs failed to match the reference alleles are also removed (should be removed in the QC). 
+* `"--mac 20"` is a reasonable filter  to apply before --glm
+
+
+
