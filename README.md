@@ -71,8 +71,9 @@ bash ./scripts/GWAS/prepration/calculate_pc.sh
 Can use the filtered SNPs from last step for GWAS test.
 
 ### 3.1.3 Sample relateless check
-Use the --make-king to generate kinship and set the cutoff to 0.177
+It has been shown that some samples from the AWI-GEN dataset are closely related. PLINK2 doesn't support LMM model, but it do provide method to remove related samples. Use the --make-king to generate kinship and set the cutoff to 0.177
 
+Tried to calculate the kinship use both all raw downloaded QCed SNPs or filtered one for PC. There are no difference. 
 ### 3.1.4 Run GWAS with PLINK2
 * SNPs showing missingness greater than 0.05, MAF less than 0.01, and HardyWeinberg equilibrium (HWE) P-value less than 0.0001 are removed (the SNPs get from EGA should be QCed).
 * Duplicates, sexual chromosomes, mitochondrial SNPs and SNPs failed to match the reference alleles are also removed (should be removed in the QC). 

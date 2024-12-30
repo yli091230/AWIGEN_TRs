@@ -6,6 +6,7 @@ plink_1.9/
 plink_2.0/
 .ipynb_checkpoints/
 __pycache__/
+other_gwas_results/
 logs/
 *7.2.1*
 Untitled*
