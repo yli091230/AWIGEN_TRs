@@ -7,10 +7,30 @@ The `EGAF00004691444` folder contains files sample informations, the `EGAF000046
 Results and additional files are not included in this repository.
 
 ```bash
+├── additional_files
+│   ├── AFR_AF_from_1kg
+│   ├── dbSNP
+│   ├── genetic_maps
+│   ├── h3a_A3
+│   ├── liftover_file
+│   └── reference_genome
+├── awigen_dataset
+│   ├── phenotypes
+│   ├── plink_file
+│   └── WGS_TR_call_from_Ibra
 ├── notebooks
-├── README.md
+│   ├── gwas_results
+│   ├── Phenotypes_check
+│   └── plinkVcf_quality_check
+├── other_gwas_results
+│   └── margoliash-et-al-2023
 ├── results
+│   ├── converted_lifted_vcf
+│   ├── converted_vcf
+│   ├── GWAS
+│   └── imputed_TRs
 └── scripts
+    ├── GWAS
     ├── plinkTovcf
     └── str_imputation
 ```
