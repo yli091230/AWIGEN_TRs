@@ -47,8 +47,9 @@ out_prefix="${imputed_folder}/chr${chrom}_imputed_filtered_SNPs"
 
 ${PLINK2} --vcf ${merged_vcf} \
   --maf ${MINMAF} \
-  --max-alleles 2 \
-  --min-alleles 2 \
+  --biallelic-only \
+#  --max-alleles 2 \
+#  --min-alleles 2 \
   --make-pgen \
   --geno 0.1 \
   --out ${out_prefix}
