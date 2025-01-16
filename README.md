@@ -100,6 +100,11 @@ Tried to calculate the kinship use both all raw downloaded QCed SNPs or filtered
 * `"--mac 20"` is a reasonable filter  to apply before --glm
 
 ## 4. Fine-mapping
-Due to the linkage disequilibrium, gentic variants may inherent together. Therefore, there are oftern many variants show high assocition with the traits and not all of those variants are the causal ones. To prioritize potential causal variants, fine-mapping often applied to set of candidates variants. Here we use [FINEMAP](http://www.christianbenner.com) as an example to show the fine-mapping process. There are many other fine-mapping tools available, you can explore and test those. 
+Due to the linkage disequilibrium, gentic variants may inherent together. Therefore, there are oftern many variants show high assocition with the traits and not all of those variants are the causal ones. To prioritize potential causal variants, fine-mapping often applied to set of candidates variants. Here we use [FINEMAP](http://www.christianbenner.com) as an example to show the fine-mapping process. There are many other fine-mapping tools available. 
 
+
+```bash
+# run this to prepare files for FINAMAP
+bash ./scripts/finemapping/prepare_finemapping.sh ${chrom}
+```
 

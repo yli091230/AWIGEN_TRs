@@ -12,7 +12,7 @@
 comment
 
 chrom=$1
-set -xe
+set -e
 
 gt_folder="/expanse/protected/gymreklab-dbgap/mount/H3Africa/DS_I_Africa_project/from_ilifu/results/imputed_TRs"
 reg_folder="/expanse/protected/gymreklab-dbgap/mount/H3Africa/DS_I_Africa_project/from_ilifu/results/GWAS/associations/friedewald_ldl_c"
@@ -79,12 +79,12 @@ awk -F"\t" -v window=2000000 -v subwindow=1000000 '
         out_line = "";
     }
     {
-        if (NR == 1) {
-            print $0;
-            next;
-        }
+        # if (NR == 1) {
+        #     print $0;
+        #     next;
+        # }
         # Initialize the first entry
-        if (NR == 2) {
+        if (NR == 1) {
             lower_boundary = $2;
             selected_boundary = $2;
             old_boundary = $2;
@@ -126,7 +126,7 @@ awk -F"\t" -v window=2000000 -v subwindow=1000000 '
         }
     }' ${gwas_hit_sorted} > ${gwas_loci}
 echo "Finish loci identification, start preparation FINEMAP files..."
-finemapping_infiles=${out_dir}/finemappling_infile_list.tsv
+finemapping_infiles=${out_dir}/finemapping_infile_list.tsv
 ## 3.prepare finemapping files for each locus
 while IFS= read -r line; do
   # skipping the header line
