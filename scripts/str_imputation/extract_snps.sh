@@ -15,6 +15,7 @@ chrom=$1
 #fi
 
 window_size=40
+MINMAF=0.05
 set -e
 PLINK2="/expanse/protected/gymreklab-dbgap/mount/H3Africa/DS_I_Africa_project/from_ilifu/scripts/plinkTovcf/plink_2.0/plink2"
 imputed_folder="/expanse/protected/gymreklab-dbgap/mount/H3Africa/DS_I_Africa_project/from_ilifu/results/imputed_TRs/chr${chrom}"
@@ -40,16 +41,17 @@ echo ${imputed_folder}/split_by_samples/*_SNPs.vcf.gz
 
 # merge all samples together
 bcftools merge ${imputed_folder}/split_by_samples/*_SNPs.vcf.gz -Oz -o ${imputed_folder}/chr${chrom}_imputed_SNPs.vcf.gz
+echo "finish merging, start indexing"
 bcftools index -t -f ${imputed_folder}/chr${chrom}_imputed_SNPs.vcf.gz
 merged_vcf="${imputed_folder}/chr${chrom}_imputed_SNPs.vcf.gz"
 
 out_prefix="${imputed_folder}/chr${chrom}_imputed_filtered_SNPs"
+echo "finish merging VCFs, output pgen files..."
 
 ${PLINK2} --vcf ${merged_vcf} \
   --maf ${MINMAF} \
-  --biallelic-only \
-#  --max-alleles 2 \
-#  --min-alleles 2 \
+  --max-alleles 2 \
+  --min-alleles 2 \
   --make-pgen \
   --geno 0.1 \
   --out ${out_prefix}
