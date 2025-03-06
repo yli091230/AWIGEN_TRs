@@ -7,7 +7,7 @@
 
 2. Phenotypes and covariates prepration 
 
-An example can be found `../../../notebooks/Phenotypes_check/Phenotypes_check.ipynb`
+Here is an example of [notebook](../../../notebooks/Phenotypes_check/Phenotypes_check.ipynb) on prepreation
 
 For covariates, sex and age information were extracted and remove samples with missing info. Joint with PCs to generate the covariates table. Other trait specific covariates may reuired, check literature for details.
 
