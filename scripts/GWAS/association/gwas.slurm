@@ -19,6 +19,7 @@ module load bcftools
 
 set -e
 chrom=$1
+variant_type=$2
 gwas_script="/expanse/protected/gymreklab-dbgap/mount/H3Africa/DS_I_Africa_project/from_ilifu/scripts/GWAS/association/run_associ.sh"
-time bash ${gwas_script} ${chrom}
+time bash ${gwas_script} ${chrom} ${variant_type}
 echo "All DONE!"
