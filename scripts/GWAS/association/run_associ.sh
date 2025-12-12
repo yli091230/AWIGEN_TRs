@@ -22,9 +22,9 @@ mkdir -p ${out_file}
 
 ${PLINK2} --pfile ${pgen_file} \
   --pheno "iid-only" ${pheno_file} \
-  --glm hide-covar \
+  --glm hide-covar omit-ref \
   --covar "iid-only" ${cov_file} \
-  --quantile-normalize \
+  --variance-standardize \
   --mac 20 \
   --ci 0.95 \
   --king-cutoff-table ${kin_table} 0.177 \
